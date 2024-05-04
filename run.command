@@ -1,0 +1,1 @@
+python stable_baselines3_run.py --speedup=8 --n_parallel=4 --env_path=./build/top-down-agent.command --timesteps=100_000 --onnx_export_path=model.onnx --save_model_path=model.zip --experiment_name=experiment1 --save_checkpoint_frequency=10_000

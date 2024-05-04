@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://jsn3vpxtvcar"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_wuv81"]
+[ext_resource type="Texture2D" uid="uid://2nubaq0217pu" path="res://assets/icon.svg" id="2_d1mp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mutj7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoavn"]
+radius = 163.12
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wuv81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_d1mp1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mutj7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xoavn")
+one_way_collision_margin = 0.4
