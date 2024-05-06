@@ -3,14 +3,17 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @onready var ai_controller = $Agent
+@onready var raycast_sensor = $RaycastSensor2D
 @export var target: Node2D
 
-func _ready() -> void:
-	ai_controller.init(self)
+var start_position
+var old_location: Vector2
 
-func game_over() -> void:
-	ai_controller.needs_reset = true
-	ai_controller.done = true
+func _ready() -> void:
+	start_position = position
+	old_location = position
+	ai_controller.init(self)
+	raycast_sensor.activate()
 
 func _physics_process(delta: float) -> void:
 	if ai_controller.needs_reset:
